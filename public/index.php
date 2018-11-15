@@ -5,10 +5,11 @@
     use App\Controllers\NewsController;
 
     $controller = new NewsController();
-    $news       = $controller->index()['news'];
-    $total      = $controller->index()['total'];
-    $current    = $controller->index()['current'];
-    $pageSize   = $controller->index()['pageSize'];
+    $index      = $controller->index();
+    $news       = $index['news'];
+    $total      = $index['total'];
+    $current    = $index['current'];
+    $pageSize   = $index['pageSize'];
 ?>
 
 <!DOCTYPE html>
@@ -73,9 +74,18 @@
         <form id="formPageSize">
             <span>Itens por página:</span>
             <select name="page-size" id="page-size" class="form-control">
-                <option <?php if($pageSize == 30) { echo ' selected'; }?>>30</option>
-                <option<?php if($pageSize == 50) { echo ' selected'; }?>>50</option>
-                <option <?php if($pageSize == 100) { echo ' selected'; }?>>100</option>
+                <option <?php if ( $pageSize == 30 ) {
+                    echo ' selected';
+                } ?>>30
+                </option>
+                <option<?php if ( $pageSize == 50 ) {
+                    echo ' selected';
+                } ?>>50
+                </option>
+                <option <?php if ( $pageSize == 100 ) {
+                    echo ' selected';
+                } ?>>100
+                </option>
             </select>
         </form
     </div>
@@ -90,7 +100,7 @@
                 <sup>Publicada em: <?php $date = date_create($new->webPublicationDate);
                         echo date_format($date, 'd/m/Y H:i') ?></sup>
                 <br>
-                <a target="_blank" href="<?=$new->webUrl?>">Visualizar Notícia</a>
+                <a target="_blank" href="<?= $new->webUrl ?>">Visualizar Notícia</a>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -116,7 +126,7 @@
 
 <script>
     const pageSizeSelect = $('#page-size');
-    pageSizeSelect.change(() => window.location = `?page=<?= $current ?>&page-size=${pageSizeSelect.val()}` );
+    pageSizeSelect.change(() => window.location = `?page=<?= $current ?>&page-size=${pageSizeSelect.val()}`);
 </script>
 
 </body>
