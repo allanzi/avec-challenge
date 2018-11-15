@@ -14,7 +14,7 @@
     {
         private $client;
         private $news;
-        private $total;
+        private $total = 1266;
         private $current;
         private $pageSize;
 
@@ -29,7 +29,6 @@
             $this->pageSize = $_GET['page-size'] ? $_GET['page-size'] : 30;
             $response       = $this->client->request('get', "/search?api-key=0d160d0f-71cd-48b0-801f-2fc9cabd2157&page-size={$this->pageSize}&page={$this->current}");
             $this->news     = json_decode($response->getBody())->response->results;
-            $this->total    = json_decode($response->getBody())->response->pages;
 
             return [
                     'news'     => $this->news,
