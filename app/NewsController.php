@@ -14,7 +14,7 @@
     {
         private $client;
         private $news;
-        private $total = 1266;
+        private $total = 380;
         private $current;
         private $pageSize;
 

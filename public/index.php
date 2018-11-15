@@ -89,6 +89,8 @@
                 <h3><?= $new->webTitle ?></h3>
                 <sup>Publicada em: <?php $date = date_create($new->webPublicationDate);
                         echo date_format($date, 'd/m/Y H:i') ?></sup>
+                <br>
+                <a target="_blank" href="<?=$new->webUrl?>">Visualizar Notícia</a>
             </li>
         <?php endforeach; ?>
     </ul>
