@@ -1,0 +1,14 @@
+{
+    "name": "allan/avec-challenge",
+    "description": "Test of jr-php-developer job",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Allan Santos",
+            "email": "allanzi.santos@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
